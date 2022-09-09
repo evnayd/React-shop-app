@@ -1,13 +1,13 @@
 //import './App.css';
 import React from 'react';
-import { Cart, Filter, Nav, Shop, Slider, Sort } from './components';
+import { Cart, Filter, Header, Shop, Slider, Sort } from './components';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App app-container">
+      <Header/>
       <Cart/>
-      <Filter/>
-      <Nav/>
+      <Filter/>    
       <Shop/>
       <Slider/>
       <Sort/>
