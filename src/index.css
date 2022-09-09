@@ -68,6 +68,27 @@ code {
 
 }
 
+.swiper-slide {
+  background-color: #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.swiper-pagination-horizontal {
+  /*background-color: #222;*/
+  width: 100px;
+  position: absolute;
+  bottom: 10px;
+
+}
+
+.swiper-slide img {
+  width: 100%;
+}
+
+
 
 
 
