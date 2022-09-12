@@ -88,6 +88,82 @@ code {
   width: 100%;
 }
 
+input[type="radio"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+  outline: 0;
+}
+
+.toggle {
+  display: inline-block;
+  position: relative;
+  margin-right: 15px;
+  outline: none;
+  width: 36px;
+  height: 22px;
+  background-color: #f2f2f2;
+  border-radius: 40px;
+}
+
+.toggle:checked {
+  /*background-color: black;*/
+  background-color: rgb(13 148 136);;
+  transition: all linear 0.3s;
+}
+
+.toggle::before {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  left: 7px;
+  top: 7px;
+  border-radius: 50%;
+  background-color: black;
+  /*background: $text-color;*/
+}
+
+.toggle:checked::before {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  left: 20px;
+  top: 7px;
+  border-radius: 50%;
+  background-color: black;
+  transition: all 0.2s cubic-bezier(0.5, 0.1, 0.75, 1.35);
+}
+
+.filter {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.filter__name {
+  margin: 0;
+}
+
+.filters__btn {
+  background-color: rgba(31, 32, 32, 0.6);
+  border: none;
+  outline: none;
+  width: 30px;
+  height: 4px;
+  margin-bottom: 43px;
+  position: relative;
+  border-radius: 2px;
+  transform: rotateY(0deg) rotate(45deg);
+}
+
+
+
+
+
 
 
 

@@ -15,7 +15,7 @@ const Slider = ( ) => {
           clickable: true}}
         navigation={true}
         modules={[Pagination, Navigation]}
-        className="mySwiper h-80"
+        className="mySwiper h-96 hidden md:block"
         loop={true}
         style={{
           "--swiper-navigation-color": "#fff",

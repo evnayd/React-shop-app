@@ -10,7 +10,7 @@ const Header = ( ) => {
     const [isOpen, setOpen] = useState(false);
 
     return  (
-    <div className="flex py-3 md:pt-6  md:pb-1 justify-between items-end md:items-baseline border-b relative z-20">
+    <div className="app-container flex py-3 md:pt-6  md:pb-2 justify-between items-end md:items-baseline border-b relative z-20">
         <Hamburger
         toggled={isOpen} toggle={setOpen}
         />
