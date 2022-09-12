@@ -1,21 +1,24 @@
-import React from 'react';
+import React,  {useState} from 'react';
 
 const Filter = ( ) => {
       
-    const filterItems = [{
-        value: "New",
+    const filterItems = [
+        {
+        value: 'New',
       },
-      {
+      { 
         value: "Exclusive",
       },
       {
-        value: "In stock",
+        value: 'In stock',
       },
       {
-        value: "Sale",
+        value: "Sale"
       },
-
     ]
+
+    const [checkedFilter, setCheckedFilter] = useState('New');
+ console.log('checkedFilter', checkedFilter)
 
     return  (
         <div className='w-1/5'>
@@ -28,9 +31,10 @@ const Filter = ( ) => {
               type="radio"
               value={filterItem.value}
               name="choice"
-              className='mr-2 toggle'   
-              checked={console.log(filterItem.value)}
-            />
+              className='mr-2 toggle' 
+              checked = {checkedFilter === filterItem.value}
+              onChange={() => setCheckedFilter(filterItem.value)}
+               />          
             <p className='mb-1 uppercase'>{filterItem.value}</p>
           </label>
         </div>
