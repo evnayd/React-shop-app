@@ -1,41 +1,51 @@
 import React,  {useState} from 'react';
+//import { useContext } from 'react';
 
-const Filter = ( ) => {
+const Filter =  ({handleClick}) => {
       
-    const filterItems = [
+    const filterValues = [
         {
-        value: 'New',
+        title: 'New',
+        name: 'new'
       },
       { 
-        value: "Exclusive",
+        title: "Exclusive",
+        name: 'exclusive'
       },
       {
-        value: 'In stock',
+        title: 'In stock',
+        name: 'in_stock'
       },
       {
-        value: "Sale"
+        title: "Sale",
+        name: 'sale'
       },
     ]
 
     const [checkedFilter, setCheckedFilter] = useState('New');
- console.log('checkedFilter', checkedFilter)
+
+   const getFilterValue = (data) => {
+    setCheckedFilter(data)
+    console.log('checkedFilter in filter component:', data)
+    handleClick(data)
+}
 
     return  (
         <div className='w-1/5'>
-             {filterItems.map((filterItem, index) => {
+             {filterValues.map((filterValue, index) => {
                 return  (
         <div className="radio"  
         key = {index}>
           <label className='flex'>
             <input
               type="radio"
-              value={filterItem.value}
+              value={filterValue.title}
               name="choice"
               className='mr-2 toggle' 
-              checked = {checkedFilter === filterItem.value}
-              onChange={() => setCheckedFilter(filterItem.value)}
+              checked = {checkedFilter === filterValue.name}
+              onChange={() => getFilterValue(filterValue.name)}
                />          
-            <p className='mb-1 uppercase'>{filterItem.value}</p>
+            <p className='mb-1 uppercase'>{filterValue.title}</p>
           </label>
         </div>
            )
