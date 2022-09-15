@@ -9,10 +9,10 @@ const Sort = ({sortItems}) => {
     <div>
         <p className="cursor-pointer"
         onClick={() => sortItems('1')}>
-        Most Expensive</p>
+        To most Expensive</p>
         <p className="cursor-pointer"
         onClick={() => sortItems('2')}>
-        Less Expensive</p>
+        To less Expensive</p>
     </div>
     )
 }

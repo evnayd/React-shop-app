@@ -69,7 +69,6 @@ const Shop = () => {
   ])
 
   const [filteredItems, setFilteredItems] = useState(items);
-  //const [sortedItems, setSortedItems] = useState(items);
 
   const filterItems = (data) => {
     if (data) {
@@ -82,7 +81,7 @@ const Shop = () => {
     }
   };
 
-  const sortItems = (data) => {
+  /*const sortItems = (data) => {
     if (data === '1') {   
     let sortedItems = [...items].sort((a, b) =>  a.cost - b.cost )
     console.log(sortedItems , 'data after sort')
@@ -93,6 +92,19 @@ const Shop = () => {
       console.log(sortedItems , 'data after sort')
       setFilteredItems(sortedItems);
     }    
+  };*/
+
+  const sortItems = (data) => {
+    if (data === '1') {   
+    let sortedItems = [...filteredItems].sort((a, b) =>  a.cost - b.cost )
+    console.log(sortedItems , 'data after sort')
+    setFilteredItems(sortedItems);
+    }
+    if (data === '2') {
+      let sortedItems = [...filteredItems].sort((a, b) =>  b.cost - a.cost )
+      console.log(sortedItems , 'data after sort')
+      setFilteredItems(sortedItems);
+    }    
   };
 
   return (
@@ -100,7 +112,7 @@ const Shop = () => {
       <Filter filterItems={filterItems} />
       <div className='md:w-4/5'>
         <h1>{filteredItems.length} items</h1>
-        <Sort sortItems={ sortItems }/>
+        <Sort sortItems={sortItems}/>
         <div className=" md:flex justify-left flex-wrap ">
           {filteredItems.map((item, index) => {
             return (
@@ -117,7 +129,6 @@ const Shop = () => {
                 </div>
               </div>
             )
-
           })}
         </div>
       </div>
