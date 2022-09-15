@@ -1,7 +1,6 @@
 import React,  {useState} from 'react';
-//import { useContext } from 'react';
 
-const Filter =  ({handleClick}) => {
+const Filter =  ({filterItems}) => {
       
     const filterValues = [
         {
@@ -27,7 +26,7 @@ const Filter =  ({handleClick}) => {
    const getFilterValue = (data) => {
     setCheckedFilter(data)
     console.log('checkedFilter in filter component:', data)
-    handleClick(data)
+    filterItems(data)
 }
 
     return  (
@@ -53,8 +52,6 @@ const Filter =  ({handleClick}) => {
         </div>         
     )
 }
-
-
 
 
 export default Filter;
