@@ -12,7 +12,7 @@ const Slider = ( ) => {
         spaceBetween={0}
         centeredSlides={true}
         pagination={{
-          clickable: true}}
+        clickable: true}}
         navigation={true}
         modules={[Pagination, Navigation]}
         className="mySwiper h-96 hidden md:block"

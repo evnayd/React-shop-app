@@ -6,7 +6,7 @@ const Shop = () => {
   const [items] = useState ( [{
     title: "Краска Wallquest, Brownsone MS90102",
     cost: "30",
-    imgUrl: "https://swiperjs.com/demos/images/nature-1.jpg",
+    imgUrl: "/img/Photo.jpg",
     new: true,
     exclusive: true,
     in_stock: true,
@@ -111,8 +111,10 @@ const Shop = () => {
     <div className='flex justify-between app-container py-20'>
       <Filter filterItems={filterItems} />
       <div className='md:w-4/5'>
-        <h1>{filteredItems.length} items</h1>
+        <div className='md:flex md:justify-between'>
+        <h1 className='hidden md:block'>{filteredItems.length} items</h1>
         <Sort sortItems={sortItems}/>
+        </div>
         <div className=" md:flex justify-left flex-wrap ">
           {filteredItems.map((item, index) => {
             return (

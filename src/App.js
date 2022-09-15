@@ -1,4 +1,3 @@
-//import './App.css';
 import React from 'react';
 import { Cart, Header, Shop, Slider } from './components';
 
@@ -6,7 +5,7 @@ import { Cart, Header, Shop, Slider } from './components';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App relative">
       <Header/>
       <Slider/> 
       <Shop/>
