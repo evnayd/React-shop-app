@@ -1,6 +1,7 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import Filter from './Filter';
 import Sort from './Sort';
+import { AppContext } from "../App";
 
 const Shop = () => {
   const [items] = useState ( [{
@@ -67,9 +68,8 @@ const Shop = () => {
     sale: false
   },
   ])
-
+  //const { ItemsCount,  setItemsCount } = useContext(AppContext);
   const [filteredItems, setFilteredItems] = useState(items);
-
   const filterItems = (data) => {
     if (data) {
       let filteredItems = [...items].filter((item) => {
@@ -79,20 +79,7 @@ const Shop = () => {
       })
       setFilteredItems(filteredItems);
     }
-  };
-
-  /*const sortItems = (data) => {
-    if (data === '1') {   
-    let sortedItems = [...items].sort((a, b) =>  a.cost - b.cost )
-    console.log(sortedItems , 'data after sort')
-    setFilteredItems(sortedItems);
-    }
-    if (data === '2') {
-      let sortedItems = [...items].sort((a, b) =>  b.cost - a.cost )
-      console.log(sortedItems , 'data after sort')
-      setFilteredItems(sortedItems);
-    }    
-  };*/
+  }
 
   const sortItems = (data) => {
     if (data === '1') {   
@@ -106,6 +93,15 @@ const Shop = () => {
       setFilteredItems(sortedItems);
     }    
   };
+
+const addToCart = (item) => {
+  let cart = JSON.parse(localStorage.getItem('cart')) || []
+
+  cart.push(item)
+
+  localStorage.setItem('cart', JSON.stringify(cart))
+
+}
 
 
   return (
@@ -128,7 +124,9 @@ const Shop = () => {
                 <h2 className='mb-4 w-4/5'>{item.title}</h2>
                 <div className="flex justify-between">
                   <p className='font-bold'>{item.cost} EUR </p>
-                  <button className="cursor-pointer hover:bg-teal-700 w-20 rounded-lg bg-teal-600 text-lg">+</button>
+                  <button 
+                  onClick={()=> addToCart(item)}
+                  className="cursor-pointer hover:bg-teal-700 w-20 rounded-lg bg-teal-600 text-lg">+</button>
                 </div>
               </div>
             )

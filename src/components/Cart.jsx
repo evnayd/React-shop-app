@@ -5,7 +5,10 @@ import { AppContext } from "../App";
 
 const Cart = ( ) => {
     const {CartOpen, setCartOpen} = useContext(AppContext);
-    console.log('CartOpen in card component', CartOpen)
+
+    const numberOfItems = JSON.parse(localStorage.getItem('cart')).length
+
+
     if ( CartOpen === 'true') 
     return  (
       
@@ -21,7 +24,7 @@ const Cart = ( ) => {
                 </button>
               </div>
               <div className='flex justify-between pb-2'>
-              <p>4 items</p>
+              <p>{numberOfItems} items</p>
               <p className='text-slate-300 uppercase text-sm'>Clear</p>
               </div>
               <div className='item-box border-t p-6 flex justify-between items-center'>
