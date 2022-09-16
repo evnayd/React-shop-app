@@ -1,16 +1,22 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Cart, Header, Shop, Slider } from './components';
 
 
+export const AppContext = React.createContext();
 
 function App() {
+
+  const [ CartOpen, setCartOpen] = useState('false')
+
   return (
-    <div className="App relative">
+
+    <AppContext.Provider value={{ CartOpen, setCartOpen }}  
+    className="App relative">
       <Header/>
       <Slider/> 
       <Shop/>
       <Cart/>
-  </div>
+  </AppContext.Provider>
   );
 }
 

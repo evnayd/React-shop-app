@@ -21,11 +21,10 @@ const Filter =  ({filterItems}) => {
       },
     ]
 
-    const [checkedFilter, setCheckedFilter] = useState('New');
+   const [checkedFilter, setCheckedFilter] = useState('New');
 
    const getFilterValue = (data) => {
     setCheckedFilter(data)
-    console.log('checkedFilter in filter component:', data)
     filterItems(data)
 }
 

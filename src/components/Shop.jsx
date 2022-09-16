@@ -6,7 +6,7 @@ const Shop = () => {
   const [items] = useState ( [{
     title: "Краска Wallquest, Brownsone MS90102",
     cost: "30",
-    imgUrl: "/img/Photo.jpg",
+    imgUrl: "../img/Photo.jpg",
     new: true,
     exclusive: true,
     in_stock: true,
@@ -106,6 +106,7 @@ const Shop = () => {
       setFilteredItems(sortedItems);
     }    
   };
+
 
   return (
     <div className='flex justify-between app-container py-20'>

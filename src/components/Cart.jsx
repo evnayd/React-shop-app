@@ -1,19 +1,22 @@
-import React from 'react';
+import React, { useContext} from 'react';
 
 import {VscChromeClose} from "react-icons/vsc";
-
-//VscError
-// <button className='w-10 h-10 rounded-full border  border-slate-200'>+</button>
+import { AppContext } from "../App";
 
 const Cart = ( ) => {
-
+    const {CartOpen, setCartOpen} = useContext(AppContext);
+    console.log('CartOpen in card component', CartOpen)
+    if ( CartOpen === 'true') 
     return  (
-    <div className='h-screen w-full bg-red-200 absolute top-0 right-0 z-50 popup'>
+      
+    <div className='h-screen w-full bg-red-200 absolute top-0 right-0 z-50 popup '>
         <div className='w-1/3 bg-white h-full opacity-100 absolute right-0 top-0 p-8 flex flex-col justify-between'>
             <div>
             <div className='flex justify-between'>
               <h1 className='font-bold text-3xl mb-28'>Cart</h1>    
-              <button className='w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center'>
+              <button 
+              onClick={() => setCartOpen('false')}
+              className='w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center'>
               <VscChromeClose></VscChromeClose>
                 </button>
               </div>
@@ -69,7 +72,6 @@ const Cart = ( ) => {
                     <button className='px-14 py-2 bg-teal-600 rounded-md uppercase text-xs'>Make the order</button>
                     </div>
            </div>
-
           
     </div>
     )

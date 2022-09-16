@@ -1,9 +1,6 @@
 import React from 'react';
 
 const Sort = ({sortItems}) => {
-    /*const getSortGoal = ()  =>{
-
-    }*/
 
     return (
     <div>
