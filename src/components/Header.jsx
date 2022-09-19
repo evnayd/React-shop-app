@@ -10,8 +10,11 @@ import { AppContext } from "../App";
 
 const Header = ( ) => {
     const [isOpen, setOpen] = useState(false);
-    const { setCartOpen} = useContext(AppContext);
-    const {quantity } = useContext(AppContext);
+    const { setCartOpen, quantity} = useContext(AppContext);
+    /*const {quantity } = useContext(AppContext);
+    console.log('quantity ', quantity )*/
+    //const numberOfItems = JSON.parse(localStorage.getItem('cart')).length
+    console.log('numberOfItems in header', quantity)
 
     return  (
     <div className="app-container flex py-3 md:pt-6  md:pb-2 justify-between items-end md:items-baseline border-b relative z-20">

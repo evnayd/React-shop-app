@@ -7,7 +7,7 @@ const Shop = () => {
   const [items] = useState ( [{
     title: "Краска Wallquest, Brownsone MS90102",
     cost: "30",
-    imgUrl: "../img/Photo.jpg",
+    imgUrl: "https://swiperjs.com/demos/images/nature-1.jpg",
     new: true,
     exclusive: true,
     in_stock: true,
@@ -68,7 +68,7 @@ const Shop = () => {
     sale: false
   },
   ])
-  //const { ItemsCount,  setItemsCount } = useContext(AppContext);
+  const { setQuantity } = useContext(AppContext);
   const [filteredItems, setFilteredItems] = useState(items);
   const filterItems = (data) => {
     if (data) {
@@ -84,23 +84,20 @@ const Shop = () => {
   const sortItems = (data) => {
     if (data === '1') {   
     let sortedItems = [...filteredItems].sort((a, b) =>  a.cost - b.cost )
-    console.log(sortedItems , 'data after sort')
     setFilteredItems(sortedItems);
     }
     if (data === '2') {
       let sortedItems = [...filteredItems].sort((a, b) =>  b.cost - a.cost )
-      console.log(sortedItems , 'data after sort')
       setFilteredItems(sortedItems);
     }    
   };
 
 const addToCart = (item) => {
   let cart = JSON.parse(localStorage.getItem('cart')) || []
-
   cart.push(item)
-
   localStorage.setItem('cart', JSON.stringify(cart))
-
+  console.log(cart.length, 'card length')
+  setQuantity(cart.length)
 }
 
 
