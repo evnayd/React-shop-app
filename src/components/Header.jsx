@@ -10,7 +10,8 @@ import { AppContext } from "../App";
 
 const Header = ( ) => {
     const [isOpen, setOpen] = useState(false);
-    const { setCartOpen,  ItemsCount, setItemsCount  } = useContext(AppContext);
+    const { setCartOpen} = useContext(AppContext);
+    const {quantity } = useContext(AppContext);
 
     return  (
     <div className="app-container flex py-3 md:pt-6  md:pb-2 justify-between items-end md:items-baseline border-b relative z-20">
@@ -31,7 +32,7 @@ const Header = ( ) => {
       <VscHeart  className='w-5 h-5  mr-2'/>
       </div>
       <div onClick={() => setCartOpen('true')}
-       className='cursor-pointer mb-1 h-6 w-6 bg-teal-600 rounded-full flex items-center justify-center'>{ItemsCount}</div>
+       className='cursor-pointer mb-1 h-6 w-6 bg-teal-600 rounded-full flex items-center justify-center'>{quantity}</div>
         </div>    
         </div>
       </div>
