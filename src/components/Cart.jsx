@@ -5,9 +5,9 @@ import { AppContext } from "../App";
 
 const Cart = ( ) => {
     const {CartOpen, setCartOpen} = useContext(AppContext);
-
     const numberOfItems = JSON.parse(localStorage.getItem('cart')).length
-
+    let cart = JSON.parse(localStorage.getItem('cart'));
+    console.log(cart, 'cart in cart component')
 
     if ( CartOpen === 'true') 
     return  (
@@ -27,16 +27,21 @@ const Cart = ( ) => {
               <p>{numberOfItems} items</p>
               <p className='text-slate-300 uppercase text-sm'>Clear</p>
               </div>
-              <div className='item-box border-t p-6 flex justify-between items-center'>
+
+                <div className=''>
+                {cart.map((cartItem, index) => {
+                         return (
+              <div className='item-box border-t p-6 flex justify-between items-center '>
+
                     <div className='flex w-1/2'>
                     <img 
                     alt="items" 
                     className='pr-8 w-24'
-                     src="https://swiperjs.com/demos/images/nature-2.jpg">   
+                     src={cartItem.imgUrl}>   
                      </img>
                     <div className="flex flex-col justify-between">
-                    <h2>Color Title</h2>
-                    <p className='font-bold text-lg'>3500</p>
+                    <h2>{cartItem.title}</h2>
+                    <p className='font-bold text-lg'>{cartItem.cost}</p>
                     </div>
                     </div>
                     <div className=' flex items-baseline'>
@@ -45,33 +50,16 @@ const Cart = ( ) => {
                     <button className='w-11  p-1 bg-slate-200 text-lg rounded-md'>+</button>
                     </div>
                     <VscChromeClose className='text-slate-200'></VscChromeClose>
-                    </div>
-
-                   <div className='item-box border-t p-6 flex justify-between items-center'>
-                    <div className='flex w-1/2'>
-                    <img 
-                    alt="items" 
-                    className='pr-8 w-24'
-                     src="https://swiperjs.com/demos/images/nature-2.jpg">   
-                     </img>
-                    <div className="flex flex-col justify-between">
-                    <h2>Color Title</h2>
-                    <p className='font-bold text-lg'>3500</p>
-                    </div>
-                    </div>
-                    <div className='flex items-baseline'>
-                    <button className='w-11 p-1 bg-slate-200 text-lg rounded-md'>-</button>
-                    <p className='mx-5'>1</p>
-                    <button className='w-11  p-1 bg-slate-200 text-lg rounded-md'>+</button>
-                    </div>
-                    <VscChromeClose className='text-slate-200'></VscChromeClose>
-                   </div>
-                   </div>
+                    </div>  
+                    )
+                })}   
+                    </div>        
+                 </div>
                    <div className='flex justify-between'>
                         <div>
                             <p>Cost:</p>
                             <div className='text-bold text-3xl'>14 000</div>
-                        </div>
+                        </div> 
                     <button className='px-14 py-2 bg-teal-600 rounded-md uppercase text-xs'>Make the order</button>
                     </div>
            </div>
