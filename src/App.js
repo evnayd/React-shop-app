@@ -7,9 +7,12 @@ export const AppContext = React.createContext();
 function App() {
   const [quantity, setQuantity] = useState(() => {
     const saved = localStorage.getItem("cart");
-    const itemsInCart = JSON.parse(saved);
-    console.log(itemsInCart, 'items in cart')
-    return itemsInCart.length
+    let itemsInCart = saved
+    if(saved){
+      itemsInCart = JSON.parse(saved)
+    }
+
+    return itemsInCart ? itemsInCart.length : 0
   });
 
   const [ CartOpen, setCartOpen] = useState('false')
