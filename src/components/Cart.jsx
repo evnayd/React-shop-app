@@ -7,7 +7,11 @@ const Cart = ( ) => {
     const {CartOpen, setCartOpen} = useContext(AppContext);
     const numberOfItems = JSON.parse(localStorage.getItem('cart')).length
     let cart = JSON.parse(localStorage.getItem('cart'));
-    console.log(cart, 'cart in cart component')
+    let costsArr = [...cart].map((item) => item = parseFloat(item.cost))
+    let totalCost = costsArr.reduce(function (a, b) {
+         return a + b
+    })
+
 
     if ( CartOpen === 'true') 
     return  (
@@ -28,10 +32,12 @@ const Cart = ( ) => {
               <p className='text-slate-300 uppercase text-sm'>Clear</p>
               </div>
 
-                <div className=''>
+                <div className='overflow-y-scroll h-96'>
                 {cart.map((cartItem, index) => {
                          return (
-              <div className='item-box border-t p-6 flex justify-between items-center '>
+              <div 
+                className='item-box border-t p-6 flex justify-between items-center '
+                key = {index}>
 
                     <div className='flex w-1/2'>
                     <img 
@@ -57,8 +63,8 @@ const Cart = ( ) => {
                  </div>
                    <div className='flex justify-between'>
                         <div>
-                            <p>Cost:</p>
-                            <div className='text-bold text-3xl'>14 000</div>
+                            <p>Total cost:</p>
+                            <div className='text-bold text-3xl'>{totalCost} EUR</div>
                         </div> 
                     <button className='px-14 py-2 bg-teal-600 rounded-md uppercase text-xs'>Make the order</button>
                     </div>
