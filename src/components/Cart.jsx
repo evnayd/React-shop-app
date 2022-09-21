@@ -4,12 +4,11 @@ import { VscChromeClose } from "react-icons/vsc";
 import { AppContext } from "../App";
 
 const Cart = () => {
-    const { CartOpen, setCartOpen, setQuantity } = useContext(AppContext);
+    const { CartOpen, setCartOpen, quantity, setQuantity } = useContext(AppContext);
     let cart = []
     if (localStorage.getItem('cart')) {
         cart = JSON.parse(localStorage.getItem('cart'));
     }
-    console.log(cart, 'cart before deleting item')
 
     const numberOfItems = cart.length
     let totalCost = 0
@@ -31,24 +30,15 @@ const Cart = () => {
         }
 
         localStorage.removeItem('cart')
-        console.log(cart, 'cart after deleting cart')
-        localStorage.setItem('cart', JSON.stringify(cart))
-        console.log(cart, 'cart after setItem deleting')
-        //cart = JSON.parse(localStorage.getItem('cart'));
+        localStorage.setItem('cart', JSON.stringify(cart));
          setQuantity(cart.length)
-         console.log(cart.length)
     
     }
 
-    /*
-    const addToCart = (item) => {
-  let cart = JSON.parse(localStorage.getItem('cart')) || []
-  cart.push(item)
-  localStorage.setItem('cart', JSON.stringify(cart))
-  console.log(cart.length, 'card length')
-  setQuantity(cart.length)
-}*/
-
+    const clearCart = () => {
+        setQuantity(0)
+        localStorage.removeItem('cart')
+    }
 
     if (CartOpen === 'true')
         return (
@@ -66,7 +56,9 @@ const Cart = () => {
                         </div>
                         <div className='flex justify-between pb-2'>
                             <p>{numberOfItems} items</p>
-                            <p className='text-slate-300 uppercase text-sm'>Clear</p>
+                            <p 
+                            onClick={() => clearCart()}
+                            className='text-slate-300 uppercase text-sm cursor-pointer'>Clear</p>
                         </div>
 
                         <div className='overflow-y-scroll h-96'>
