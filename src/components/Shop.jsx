@@ -2,6 +2,7 @@ import React, {useState, useContext} from 'react';
 import Filter from './Filter';
 import Sort from './Sort';
 import { AppContext } from "../App";
+import { EffectCards } from 'swiper';
 
 const Shop = () => {
   const [items] = useState ( [{
@@ -11,61 +12,70 @@ const Shop = () => {
     new: true,
     exclusive: true,
     in_stock: true,
-    sale: false
+    sale: false,
+    quantity: 1
+
   },
   {
-    title: "Краска Wallquest, Brownsone MS90102",
+    title: "Краска Wallquest, Brownsone MS90103",
     cost: "40",
     imgUrl: "https://swiperjs.com/demos/images/nature-2.jpg",
     new: false,
     exclusive: true,
     in_stock: true,
-    sale: true
+    sale: true,
+    quantity: 1
   },
   {
-    title: "Краска Wallquest, Brownsone MS90102",
+    title: "Краска Wallquest, Brownsone MS90104",
     cost: "32",
     imgUrl: "https://swiperjs.com/demos/images/nature-3.jpg",
     new: true,
     exclusive: false,
     in_stock: true,
-    sale: false
+    sale: false,
+    quantity: 1
   },
   {
-    title: "Краска Wallquest, Brownsone MS90102",
+    title: "Краска Wallquest, Brownsone MS90105",
     cost: "29",
     imgUrl: "https://swiperjs.com/demos/images/nature-3.jpg",
     new: true,
     exclusive: false,
     in_stock: true,
-    sale: false
+    sale: false,
+    quantity: 1
   },
   {
-    title: "Краска Wallquest, Brownsone MS90102",
+    title: "Краска Wallquest, Brownsone MS90106",
     cost: "20",
     imgUrl: "https://swiperjs.com/demos/images/nature-3.jpg",
     new: false,
     exclusive: false,
     in_stock: true,
-    sale: true
+    sale: true,
+    quantity: 1
+
   },
   {
-    title: "Краска Wallquest, Brownsone MS90102",
+    title: "Краска Wallquest, Brownsone MS90107",
     cost: "19",
     imgUrl: "https://swiperjs.com/demos/images/nature-3.jpg",
     new: false,
     exclusive: false,
     in_stock: true,
-    sale: true
+    sale: true,
+    quantity: 1
   },
   {
-    title: "Краска Wallquest, Brownsone MS90109",
+    title: "Краска Wallquest, Brownsone MS90108",
     cost: "80",
     imgUrl: "https://swiperjs.com/demos/images/nature-1.jpg",
     new: true,
     exclusive: true,
     in_stock: true,
-    sale: false
+    sale: false,
+    quantity: 1
   },
   ])
   const { setQuantity } = useContext(AppContext);
@@ -92,12 +102,45 @@ const Shop = () => {
     }    
   };
 
+  
+
+  const checkDuplicate = (item, cart) => {
+    console.log('check duplicate')
+    let duplicate = cart.find((element) => element === item);
+    console.log('duplicate ', duplicate )
+    
+    if (duplicate !== undefined) {
+       console.log(duplicate)                                  
+        duplicate.quantity++
+        console.log('duplicateItem.quantity', duplicate.quantity)
+        localStorage.setItem('cart', JSON.stringify(cart))   
+    }
+
+    else {
+      console.log('no duplicate')
+    }
+    }
+
+
 const addToCart = (item) => {
   let cart = JSON.parse(localStorage.getItem('cart')) || []
-  cart.push(item)
+  console.log('check duplicate')
+  console.log(item)
+  let duplicate = cart.find(element => element.title === item.title);
+  console.log('duplicate ', duplicate )
+  console.log('cart ', cart )
+    
+    if (duplicate !== undefined) {                               
+        duplicate.quantity++
+        console.log('duplicateItem.quantity', duplicate.quantity) 
+    }
+
+    else {
+  cart.push(item)}
+  
   localStorage.setItem('cart', JSON.stringify(cart))
-  console.log(cart.length, 'card length')
   setQuantity(cart.length)
+
 }
 
 

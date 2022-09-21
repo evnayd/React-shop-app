@@ -40,6 +40,31 @@ const Cart = () => {
         localStorage.removeItem('cart')
     }
 
+    const decreaseQuantity = (cartItem) => {
+        console.log(' decreaseQuantity ')
+       
+        console.log(cartItem.quantity)
+        //let cart = JSON.parse(localStorage.getItem('cart')) || []
+        cart.push(cartItem)
+    }
+
+    const increaseQuantity = (cartItem) => {
+        console.log(' encreaseQuantity ')
+        cartItem.quantity = cartItem.quantity + 1
+        console.log(cartItem.quantity)
+        cart.push(cartItem)
+        console.log (cart, 'cart')
+        for( var i = 0; i < cart.length; i++){ 
+                                   
+            if ( cart[i] === cartItem) { 
+                cart[i].quantity = cartItem.quantity
+            }
+        }
+
+        console.log (cart, 'cart after adding q')
+    }
+
+
     if (CartOpen === 'true')
         return (
 
@@ -80,10 +105,18 @@ const Cart = () => {
                                                     <p className='font-bold text-lg'>{cartItem.cost}</p>
                                                 </div>
                                             </div>
-                                            <div className=' flex items-baseline'>
-                                                <button className='w-11 p-1 bg-slate-200 text-lg rounded-md'>-</button>
-                                                <p className='mx-5'>1</p>
-                                                <button className='w-11  p-1 bg-slate-200 text-lg rounded-md'>+</button>
+                                            <div className='flex items-baseline'>
+                                                <button 
+                                                onClick={() => {
+                                                    decreaseQuantity(cartItem)
+                                                }}
+                                                className='w-11 p-1 bg-slate-200 text-lg rounded-md'>-</button>
+                                                <p className='mx-5'>{cartItem.quantity}</p>
+                                                <button 
+                                                 onClick={() => {
+                                                    increaseQuantity(cartItem)
+                                                }}
+                                                className='w-11  p-1 bg-slate-200 text-lg rounded-md'>+</button>
                                             </div>
                                             <VscChromeClose 
                                             onClick={() => deleteItem(cartItem)} 
