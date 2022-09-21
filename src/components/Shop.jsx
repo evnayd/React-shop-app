@@ -7,7 +7,7 @@ import { EffectCards } from 'swiper';
 const Shop = () => {
   const [items] = useState ( [{
     title: "Краска Wallquest, Brownsone MS90102",
-    cost: "30",
+    cost: 30,
     imgUrl: "https://swiperjs.com/demos/images/nature-1.jpg",
     new: true,
     exclusive: true,
@@ -18,7 +18,7 @@ const Shop = () => {
   },
   {
     title: "Краска Wallquest, Brownsone MS90103",
-    cost: "40",
+    cost: 40,
     imgUrl: "https://swiperjs.com/demos/images/nature-2.jpg",
     new: false,
     exclusive: true,
@@ -28,7 +28,7 @@ const Shop = () => {
   },
   {
     title: "Краска Wallquest, Brownsone MS90104",
-    cost: "32",
+    cost: 32,
     imgUrl: "https://swiperjs.com/demos/images/nature-3.jpg",
     new: true,
     exclusive: false,
@@ -38,7 +38,7 @@ const Shop = () => {
   },
   {
     title: "Краска Wallquest, Brownsone MS90105",
-    cost: "29",
+    cost: 29,
     imgUrl: "https://swiperjs.com/demos/images/nature-3.jpg",
     new: true,
     exclusive: false,
@@ -48,7 +48,7 @@ const Shop = () => {
   },
   {
     title: "Краска Wallquest, Brownsone MS90106",
-    cost: "20",
+    cost: 20,
     imgUrl: "https://swiperjs.com/demos/images/nature-3.jpg",
     new: false,
     exclusive: false,
@@ -59,7 +59,7 @@ const Shop = () => {
   },
   {
     title: "Краска Wallquest, Brownsone MS90107",
-    cost: "19",
+    cost: 19,
     imgUrl: "https://swiperjs.com/demos/images/nature-3.jpg",
     new: false,
     exclusive: false,
@@ -69,7 +69,7 @@ const Shop = () => {
   },
   {
     title: "Краска Wallquest, Brownsone MS90108",
-    cost: "80",
+    cost: 80,
     imgUrl: "https://swiperjs.com/demos/images/nature-1.jpg",
     new: true,
     exclusive: true,
@@ -124,20 +124,16 @@ const Shop = () => {
 
 const addToCart = (item) => {
   let cart = JSON.parse(localStorage.getItem('cart')) || []
-  console.log('check duplicate')
-  console.log(item)
   let duplicate = cart.find(element => element.title === item.title);
-  console.log('duplicate ', duplicate )
-  console.log('cart ', cart )
     
     if (duplicate !== undefined) {                               
         duplicate.quantity++
-        console.log('duplicateItem.quantity', duplicate.quantity) 
+        //duplicate.cost += item.cost
     }
 
     else {
   cart.push(item)}
-  
+
   localStorage.setItem('cart', JSON.stringify(cart))
   setQuantity(cart.length)
 

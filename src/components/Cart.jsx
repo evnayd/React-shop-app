@@ -40,29 +40,22 @@ const Cart = () => {
         localStorage.removeItem('cart')
     }
 
-    const decreaseQuantity = (cartItem) => {
+    /*const decreaseQuantity = (cartItem) => {
         console.log(' decreaseQuantity ')
        
         console.log(cartItem.quantity)
-        //let cart = JSON.parse(localStorage.getItem('cart')) || []
-        cart.push(cartItem)
+        cartItem.quantity--
+        console.log(cart)
+
     }
 
     const increaseQuantity = (cartItem) => {
         console.log(' encreaseQuantity ')
         cartItem.quantity = cartItem.quantity + 1
         console.log(cartItem.quantity)
-        cart.push(cartItem)
-        console.log (cart, 'cart')
-        for( var i = 0; i < cart.length; i++){ 
-                                   
-            if ( cart[i] === cartItem) { 
-                cart[i].quantity = cartItem.quantity
-            }
-        }
 
-        console.log (cart, 'cart after adding q')
-    }
+        console.log (cart, 'cart')
+    }*/
 
 
     if (CartOpen === 'true')
