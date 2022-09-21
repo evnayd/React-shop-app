@@ -4,11 +4,12 @@ import { VscChromeClose } from "react-icons/vsc";
 import { AppContext } from "../App";
 
 const Cart = () => {
-    const { CartOpen, setCartOpen } = useContext(AppContext);
+    const { CartOpen, setCartOpen, setQuantity } = useContext(AppContext);
     let cart = []
     if (localStorage.getItem('cart')) {
         cart = JSON.parse(localStorage.getItem('cart'));
     }
+    console.log(cart, 'cart before deleting item')
 
     const numberOfItems = cart.length
     let totalCost = 0
@@ -20,6 +21,7 @@ const Cart = () => {
     }
 
     const  deleteItem = (item) => {
+        
         for( var i = 0; i < cart.length; i++){ 
                                    
             if ( cart[i] === item) { 
@@ -29,9 +31,23 @@ const Cart = () => {
         }
 
         localStorage.removeItem('cart')
+        console.log(cart, 'cart after deleting cart')
         localStorage.setItem('cart', JSON.stringify(cart))
+        console.log(cart, 'cart after setItem deleting')
+        //cart = JSON.parse(localStorage.getItem('cart'));
+         setQuantity(cart.length)
+         console.log(cart.length)
     
     }
+
+    /*
+    const addToCart = (item) => {
+  let cart = JSON.parse(localStorage.getItem('cart')) || []
+  cart.push(item)
+  localStorage.setItem('cart', JSON.stringify(cart))
+  console.log(cart.length, 'card length')
+  setQuantity(cart.length)
+}*/
 
 
     if (CartOpen === 'true')
@@ -77,7 +93,9 @@ const Cart = () => {
                                                 <p className='mx-5'>1</p>
                                                 <button className='w-11  p-1 bg-slate-200 text-lg rounded-md'>+</button>
                                             </div>
-                                            <VscChromeClose onClick={() => deleteItem(cartItem)} className='text-slate-200'></VscChromeClose>
+                                            <VscChromeClose 
+                                            onClick={() => deleteItem(cartItem)} 
+                                            className='text-slate-200 cursor-pointer'></VscChromeClose>
                                         </div>
                                     )
                                 }
