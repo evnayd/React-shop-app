@@ -77,6 +77,7 @@ const Shop = () => {
     sale: false,
     quantity: 1
   },
+ 
   ])
   const { setQuantity } = useContext(AppContext);
   const [filteredItems, setFilteredItems] = useState(items);

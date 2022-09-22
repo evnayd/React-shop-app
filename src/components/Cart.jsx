@@ -50,22 +50,18 @@ const Cart = () => {
         if (cartItem.quantity === 0) {
             deleteItem(cartItem) 
         }
-        setQuantity(cart.length)
-
     }
 
     const increaseQuantity = (cartItem) => {
         console.log(' encreaseQuantity ')
         cartItem.quantity = cartItem.quantity + 1
         console.log('cartItem.quantity after increase', cartItem.quantity )
-        setQuantity(cart.length)
     }
 
 
     if (CartOpen === 'true')
         return (
-
-            <div className='h-screen w-full bg-red-200 absolute top-0 right-0 z-50 popup '>
+            <div className='h-screen w-full bg-red-200 fixed top-0 right-0 z-50 popup'>
                 <div className='w-1/3 bg-white h-full opacity-100 absolute right-0 top-0 p-8 flex flex-col justify-between'>
                     <div>
                         <div className='flex justify-between'>
