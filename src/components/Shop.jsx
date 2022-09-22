@@ -102,24 +102,6 @@ const Shop = () => {
     }    
   };
 
-  
-
-  const checkDuplicate = (item, cart) => {
-    console.log('check duplicate')
-    let duplicate = cart.find((element) => element === item);
-    console.log('duplicate ', duplicate )
-    
-    if (duplicate !== undefined) {
-       console.log(duplicate)                                  
-        duplicate.quantity++
-        console.log('duplicateItem.quantity', duplicate.quantity)
-        localStorage.setItem('cart', JSON.stringify(cart))   
-    }
-
-    else {
-      console.log('no duplicate')
-    }
-    }
 
 
 const addToCart = (item) => {
@@ -128,15 +110,15 @@ const addToCart = (item) => {
     
     if (duplicate !== undefined) {                               
         duplicate.quantity++
-        //duplicate.cost += item.cost
     }
 
     else {
-  cart.push(item)}
+  cart.push(item)
+    }
 
   localStorage.setItem('cart', JSON.stringify(cart))
   setQuantity(cart.length)
-
+  
 }
 
 

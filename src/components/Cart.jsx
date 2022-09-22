@@ -1,19 +1,21 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 
 import { VscChromeClose } from "react-icons/vsc";
 import { AppContext } from "../App";
 
 const Cart = () => {
-    const { CartOpen, setCartOpen, quantity, setQuantity } = useContext(AppContext);
+    //let [itemQuantity, setItemQuantity] = useState(1);
+    const { CartOpen, setCartOpen, setQuantity } = useContext(AppContext);
     let cart = []
     if (localStorage.getItem('cart')) {
         cart = JSON.parse(localStorage.getItem('cart'));
     }
 
     const numberOfItems = cart.length
+
     let totalCost = 0
     if (cart.length) {
-        let costsArr = [...cart].map((item) => item = parseFloat(item.cost))
+        let costsArr = [...cart].map((item) => item = parseFloat(item.cost * item.quantity ))
         totalCost = costsArr.reduce(function (a, b) {
             return a + b
         })
@@ -32,7 +34,6 @@ const Cart = () => {
         localStorage.removeItem('cart')
         localStorage.setItem('cart', JSON.stringify(cart));
          setQuantity(cart.length)
-    
     }
 
     const clearCart = () => {
@@ -40,22 +41,25 @@ const Cart = () => {
         localStorage.removeItem('cart')
     }
 
-    /*const decreaseQuantity = (cartItem) => {
+    const decreaseQuantity = (cartItem) => {
         console.log(' decreaseQuantity ')
        
         console.log(cartItem.quantity)
         cartItem.quantity--
         console.log(cart)
+        if (cartItem.quantity === 0) {
+            deleteItem(cartItem) 
+        }
+        setQuantity(cart.length)
 
     }
 
     const increaseQuantity = (cartItem) => {
         console.log(' encreaseQuantity ')
         cartItem.quantity = cartItem.quantity + 1
-        console.log(cartItem.quantity)
-
-        console.log (cart, 'cart')
-    }*/
+        console.log('cartItem.quantity after increase', cartItem.quantity )
+        setQuantity(cart.length)
+    }
 
 
     if (CartOpen === 'true')
@@ -95,7 +99,10 @@ const Cart = () => {
                                                 </img>
                                                 <div className="flex flex-col justify-between">
                                                     <h2>{cartItem.title}</h2>
-                                                    <p className='font-bold text-lg'>{cartItem.cost}</p>
+                                                    <div>{cartItem.cost}e per item</div>
+                                                    <div className='font-bold text-lg'>
+                                                       Total: {cartItem.cost * cartItem.quantity}
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div className='flex items-baseline'>
