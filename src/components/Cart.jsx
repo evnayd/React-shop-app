@@ -4,8 +4,8 @@ import { VscChromeClose } from "react-icons/vsc";
 import { AppContext } from "../App";
 
 const Cart = () => {
-    //let [itemQuantity, setItemQuantity] = useState(1);
-    const { CartOpen, setCartOpen, setQuantity } = useContext(AppContext);
+    const { CartOpen, setCartOpen, setQuantity} = useContext(AppContext);
+
     let cart = []
     if (localStorage.getItem('cart')) {
         cart = JSON.parse(localStorage.getItem('cart'));
@@ -21,8 +21,7 @@ const Cart = () => {
         })
     }
 
-    const  deleteItem = (item) => {
-        
+    const  deleteItem = (item) => {    
         for( var i = 0; i < cart.length; i++){ 
                                    
             if ( cart[i] === item) { 
@@ -33,7 +32,8 @@ const Cart = () => {
 
         localStorage.removeItem('cart')
         localStorage.setItem('cart', JSON.stringify(cart));
-         setQuantity(cart.length)
+        setQuantity(cart.length)
+        console.log('delete item',cart)
     }
 
     const clearCart = () => {
@@ -41,21 +41,50 @@ const Cart = () => {
         localStorage.removeItem('cart')
     }
 
-    const decreaseQuantity = (cartItem) => {
-        console.log(' decreaseQuantity ')
-       
-        console.log(cartItem.quantity)
-        cartItem.quantity--
-        console.log(cart)
-        if (cartItem.quantity === 0) {
-            deleteItem(cartItem) 
-        }
-    }
+
+
+    const [value, setValue] = useState(0);
+    const forceUpdate = () => {
+       setValue(value + 1); 
+   }
+
+    const decreaseQuantity = (cartItem) => { 
+                if (cartItem.quantity  === 1) {
+                    deleteItem(cartItem)
+                    console.log('less than 0')
+                 } 
+                 else {
+                    cartItem.quantity = cartItem.quantity - 1
+                    console.log(' cartItem.quantity',  cartItem.quantity)
+                 } 
+                localStorage.removeItem('cart')
+                localStorage.setItem('cart', JSON.stringify(cart));  
+                forceUpdate();
+           }
 
     const increaseQuantity = (cartItem) => {
-        console.log(' encreaseQuantity ')
-        cartItem.quantity = cartItem.quantity + 1
-        console.log('cartItem.quantity after increase', cartItem.quantity )
+         for( var i = 0; i < cart.length; i++){ 
+
+            if ( cart[i].title === cartItem.title) { 
+                cart[i].quantity = cart[i].quantity + 1
+            }  
+
+        localStorage.removeItem('cart')
+        localStorage.setItem('cart', JSON.stringify(cart));    
+        cart = JSON.parse(localStorage.getItem('cart'));  
+         }
+         forceUpdate();
+    }
+
+    const makeTheOrder = () => {
+        if (!cart.length) {
+        alert('Your cart is empty, please put item in the cart to make the order')
+        }
+        else {
+            setCartOpen('false')
+            alert('Thank you for your order')
+            clearCart()
+        }
     }
 
 
@@ -83,34 +112,33 @@ const Cart = () => {
                             {(cart && cart.length) ?
                                 (cart.map((cartItem, index) => {
                                     return (
-                                        <div
-                                            className='item-box border-t p-6 flex justify-between items-center '
+                                     <div
+                                            className='item-box border-t p-2 flex justify-between items-center '
                                             key={index}>
 
                                             <div className='flex w-1/2'>
                                                 <img
                                                     alt="items"
-                                                    className='pr-8 w-24'
+                                                    className='pr-8 w-32'
                                                     src={cartItem.imgUrl}>
                                                 </img>
                                                 <div className="flex flex-col justify-between">
                                                     <h2>{cartItem.title}</h2>
-                                                    <div>{cartItem.cost}e per item</div>
-                                                    <div className='font-bold text-lg'>
-                                                       Total: {cartItem.cost * cartItem.quantity}
-                                                    </div>
+                                                    <div>{cartItem.cost} EUR per item</div>
                                                 </div>
                                             </div>
                                             <div className='flex items-baseline'>
+                                            
                                                 <button 
                                                 onClick={() => {
-                                                    decreaseQuantity(cartItem)
+                                                    decreaseQuantity(cartItem) 
+                                                    
                                                 }}
                                                 className='w-11 p-1 bg-slate-200 text-lg rounded-md'>-</button>
-                                                <p className='mx-5'>{cartItem.quantity}</p>
+                                                <p className='mx-5'>{cartItem.quantity }</p>
                                                 <button 
                                                  onClick={() => {
-                                                    increaseQuantity(cartItem)
+                                                    increaseQuantity(cartItem)                                          
                                                 }}
                                                 className='w-11  p-1 bg-slate-200 text-lg rounded-md'>+</button>
                                             </div>
@@ -132,7 +160,9 @@ const Cart = () => {
                             <p>Total cost:</p>
                             <div className='text-bold text-3xl'>{totalCost} EUR</div>
                         </div>
-                        <button className='px-14 py-2 bg-teal-600 rounded-md uppercase text-xs'>Make the order</button>
+                        <button
+                         onClick={() => makeTheOrder()} 
+                         className='px-14 py-2 bg-teal-600 hover:bg-teal-700 rounded-md uppercase text-xs'>Make the order</button>
                     </div>
                 </div>
 

@@ -15,11 +15,14 @@ function App() {
     return itemsInCart ? itemsInCart.length : 0
   });
 
+
+
   const [ CartOpen, setCartOpen] = useState('false')
+  const [  number, setNumber] = useState('false')
 
   return (
 
-    <AppContext.Provider value={{ CartOpen, setCartOpen, quantity, setQuantity }}  
+    <AppContext.Provider value={{ CartOpen, setCartOpen, quantity, setQuantity, number, setNumber }}  
     className="App relative">
       <Header/>
       <Slider/> 
