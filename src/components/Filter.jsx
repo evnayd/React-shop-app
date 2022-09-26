@@ -1,4 +1,5 @@
 import React,  {useState} from 'react';
+import { VscChevronDown } from "react-icons/vsc";
 
 const Filter =  ({filterItems}) => {
       
@@ -30,6 +31,10 @@ const Filter =  ({filterItems}) => {
 
     return  (
         <div className='w-1/5'>
+          <h1 className='uppercase md:hidden'>Filters</h1>
+          <div className='w-full fixed md:static inset-0 h-full md:h-auto popup md:bg-white'>
+            <div className='bg-white absolute md:static inset-x-0 bottom-0 h-2/3 px-10 py-14 md:p-0 rounded-t-3xl'>
+            <VscChevronDown  className='block m-auto mb-6 md:hidden'></VscChevronDown>
              {filterValues.map((filterValue, index) => {
                 return  (
         <div className="radio"  
@@ -43,12 +48,14 @@ const Filter =  ({filterItems}) => {
               checked = {checkedFilter === filterValue.name}
               onChange={() => getFilterValue(filterValue.name)}
                />          
-            <p className='mb-1 uppercase'>{filterValue.title}</p>
+            <p className='md:mb-1 mb-3 uppercase'>{filterValue.title}</p>
           </label>
         </div>
            )
         })}
-        </div>         
+        </div>  
+        </div>
+        </div>       
     )
 }
 
