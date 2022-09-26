@@ -91,7 +91,7 @@ const Cart = () => {
     if (CartOpen === 'true')
         return (
             <div className='h-screen w-full bg-red-200 fixed top-0 right-0 z-50 popup'>
-                <div className='w-1/3 bg-white h-full opacity-100 absolute right-0 top-0 p-8 flex flex-col justify-between'>
+                <div className='w-full lg:w-1/3 bg-white h-full opacity-100 absolute right-0 top-0 p-4 md:p-8 flex flex-col justify-between'>
                     <div>
                         <div className='flex justify-between'>
                             <h1 className='font-bold text-3xl mb-28'>Cart</h1>
@@ -113,13 +113,13 @@ const Cart = () => {
                                 (cart.map((cartItem, index) => {
                                     return (
                                      <div
-                                            className='item-box border-t p-2 flex justify-between items-center '
+                                            className='item-box border-t md:p-2 py-4 flex justify-between items-center relative'
                                             key={index}>
 
                                             <div className='flex w-1/2'>
                                                 <img
                                                     alt="items"
-                                                    className='pr-8 w-32'
+                                                    className='pr-3 md:pr-8 w-32'
                                                     src={cartItem.imgUrl}>
                                                 </img>
                                                 <div className="flex flex-col justify-between">
@@ -140,11 +140,11 @@ const Cart = () => {
                                                  onClick={() => {
                                                     increaseQuantity(cartItem)                                          
                                                 }}
-                                                className='w-11  p-1 bg-slate-200 text-lg rounded-md'>+</button>
+                                                className='w-11 p-1 bg-slate-200 text-lg rounded-md'>+</button>
                                             </div>
                                             <VscChromeClose 
                                             onClick={() => deleteItem(cartItem)} 
-                                            className='text-slate-200 cursor-pointer'></VscChromeClose>
+                                            className='text-slate-200 cursor-pointer absolute top-4 right-0'></VscChromeClose>
                                         </div>
                                     )
                                 }

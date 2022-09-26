@@ -123,28 +123,30 @@ const addToCart = (item) => {
 
 
   return (
-    <div className='flex justify-between app-container py-20'>
+    <div className='md:flex md:justify-between app-container py-20 relative'>
       <Filter filterItems={filterItems} />
       <div className='md:w-4/5'>
         <div className='md:flex md:justify-between'>
         <h1 className='hidden md:block'>{filteredItems.length} items</h1>
-        <Sort sortItems={sortItems}/>
+        <Sort 
+        className=""
+        sortItems={sortItems}/>
         </div>
         <div className=" md:flex justify-left flex-wrap ">
           {filteredItems.map((item, index) => {
             return (
               <div
                 key={index}
-                className='border-b pb-4 mr-4 mb-4'>
+                className='border-b pb-4 md:mr-4 mb-4'>
                 <img src={item.imgUrl}
                   alt="item_picture"
-                  className="w-60 h-60 m-8"></img>
+                  className="w-full h-60 md:m-8 mb-6"></img>
                 <h2 className='mb-4 w-4/5'>{item.title}</h2>
                 <div className="flex justify-between">
                   <p className='font-bold'>{item.cost} EUR </p>
                   <button 
                   onClick={()=> addToCart(item)}
-                  className="cursor-pointer hover:bg-teal-700 w-20 rounded-lg bg-teal-600 text-lg">+</button>
+                  className="cursor-pointer rounded-lg  text-lg bg-slate-200 hover:bg-teal-700 md:bg-teal-600 w-12 md:w-20">+</button>
                 </div>
               </div>
             )
