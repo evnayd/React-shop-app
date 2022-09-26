@@ -123,24 +123,24 @@ const addToCart = (item) => {
 
 
   return (
-    <div className='md:flex md:justify-between app-container py-20 relative'>
+    <div className='lg:flex lg:justify-between app-container py-20 relative'>
       <Filter filterItems={filterItems} />
-      <div className='md:w-4/5'>
+      <div className='lg:w-4/5'>
         <div className='md:flex md:justify-between'>
         <h1 className='hidden md:block'>{filteredItems.length} items</h1>
         <Sort 
         className=""
         sortItems={sortItems}/>
         </div>
-        <div className=" md:flex justify-left flex-wrap ">
+        <div className="md:flex flex-wrap justify-between mx-1">
           {filteredItems.map((item, index) => {
             return (
               <div
                 key={index}
-                className='border-b pb-4 md:mr-4 mb-4'>
+                className='border-b pb-4 lg:mr-4 mb-4'>
                 <img src={item.imgUrl}
                   alt="item_picture"
-                  className="w-full h-60 md:m-8 mb-6"></img>
+                  className="w-auto h-60 md:m-8 mb-6"></img>
                 <h2 className='mb-4 w-4/5'>{item.title}</h2>
                 <div className="flex justify-between">
                   <p className='font-bold'>{item.cost} EUR </p>
