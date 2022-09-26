@@ -167,6 +167,18 @@ input[type="radio"] {
 }
 
 
+.filters-list {
+  animation-name: openMobileFilter;
+  animation-duration: 2s;
+}
+
+@keyframes openMobileFilter {
+  from {margin-bottom: -100px;}
+  to {margin-bottom:0}
+}
+
+
+
    
 
 

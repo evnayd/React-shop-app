@@ -2,7 +2,6 @@ import React, {useState, useContext} from 'react';
 import Filter from './Filter';
 import Sort from './Sort';
 import { AppContext } from "../App";
-import { EffectCards } from 'swiper';
 
 const Shop = () => {
   const [items] = useState ( [{
