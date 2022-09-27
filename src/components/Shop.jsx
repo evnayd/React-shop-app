@@ -5,7 +5,7 @@ import { AppContext } from "../App";
 
 const Shop = () => {
   const [items] = useState ( [{
-    title: "Краска Wallquest, Brownsone MS90102",
+    title: "Wall Paint Wallquest, MS90102",
     cost: 30,
     imgUrl: "https://swiperjs.com/demos/images/nature-1.jpg",
     new: true,
@@ -16,7 +16,7 @@ const Shop = () => {
 
   },
   {
-    title: "Краска Wallquest, Brownsone MS90103",
+    title: "Wall Paint Wallquest, MS90103",
     cost: 40,
     imgUrl: "https://swiperjs.com/demos/images/nature-2.jpg",
     new: false,
@@ -26,7 +26,7 @@ const Shop = () => {
     quantity: 1
   },
   {
-    title: "Краска Wallquest, Brownsone MS90104",
+    title: "Wall Paint Wallquest, MS90104",
     cost: 32,
     imgUrl: "https://swiperjs.com/demos/images/nature-3.jpg",
     new: true,
@@ -36,7 +36,7 @@ const Shop = () => {
     quantity: 1
   },
   {
-    title: "Краска Wallquest, Brownsone MS90105",
+    title: "Wall Paint Wallquest, MS90105",
     cost: 29,
     imgUrl: "https://swiperjs.com/demos/images/nature-3.jpg",
     new: true,
@@ -46,7 +46,7 @@ const Shop = () => {
     quantity: 1
   },
   {
-    title: "Краска Wallquest, Brownsone MS90106",
+    title: "Wall Paint Wallquest, MS90106",
     cost: 20,
     imgUrl: "https://swiperjs.com/demos/images/nature-3.jpg",
     new: false,
@@ -57,7 +57,7 @@ const Shop = () => {
 
   },
   {
-    title: "Краска Wallquest, Brownsone MS90107",
+    title: "Wall Paint Wallquest, MS90107",
     cost: 19,
     imgUrl: "https://swiperjs.com/demos/images/nature-3.jpg",
     new: false,
@@ -67,7 +67,7 @@ const Shop = () => {
     quantity: 1
   },
   {
-    title: "Краска Wallquest, Brownsone MS90108",
+    title: "Wall Paint Wallquest, MS90108",
     cost: 80,
     imgUrl: "https://swiperjs.com/demos/images/nature-1.jpg",
     new: true,
@@ -127,21 +127,21 @@ const addToCart = (item) => {
       <Filter filterItems={filterItems} />
       <div className='lg:w-4/5'>
         <div className='md:flex md:justify-between'>
-        <h1 className='hidden md:block'>{filteredItems.length} items</h1>
+        <h1 className='hidden md:block text-gray-500 text-sm'>{filteredItems.length} items</h1>
         <Sort 
         className=""
         sortItems={sortItems}/>
         </div>
-        <div className="md:flex flex-wrap justify-between mx-1">
+        <div className="md:flex flex-wrap justify-between mx-1 ">
           {filteredItems.map((item, index) => {
             return (
               <div
                 key={index}
-                className='border-b pb-4 lg:mr-4 mb-4'>
+                className='border-b px-2 py-6 lg:mr-4 mb-4'>
                 <img src={item.imgUrl}
                   alt="item_picture"
-                  className="w-auto h-60 md:m-8 mb-6"></img>
-                <h2 className='mb-4 w-4/5'>{item.title}</h2>
+                  className="w-auto h-60 ml-auto mr-auto"></img>
+                <h2 className='mt-4 mb-4 w-4/5'>{item.title}</h2>
                 <div className="flex justify-between">
                   <p className='font-bold'>{item.cost} EUR </p>
                   <button 

@@ -123,8 +123,8 @@ const Cart = () => {
                                                     src={cartItem.imgUrl}>
                                                 </img>
                                                 <div className="flex flex-col justify-between">
-                                                    <h2>{cartItem.title}</h2>
-                                                    <div>{cartItem.cost} EUR per item</div>
+                                                    <h2 className="font-medium">{cartItem.title}</h2>
+                                                    <p className="text-xs">{cartItem.cost} EUR per item</p>
                                                 </div>
                                             </div>
                                             <div className='flex items-baseline'>
