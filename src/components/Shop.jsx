@@ -26,6 +26,16 @@ const Shop = () => {
     quantity: 1
   },
   {
+    title: "Wall Paint Wallquest, MS90111",
+    cost: 45,
+    imgUrl: require("../img/Photo1.jpg"),
+    new: false,
+    exclusive: true,
+    in_stock: true,
+    sale: true,
+    quantity: 1
+  },
+  {
     title: "Wall Paint Wallquest, MS90104",
     cost: 32,
     imgUrl: require("../img/Photo3.jpg"),
@@ -76,6 +86,26 @@ const Shop = () => {
     sale: false,
     quantity: 1
   },
+  {
+    title: "Wall Paint Wallquest, MS90138",
+    cost: 67,
+    imgUrl: require("../img/Photo1.jpg"),
+    new: true,
+    exclusive: true,
+    in_stock: true,
+    sale: false,
+    quantity: 1
+  },
+  {
+    title: "Wall Paint Wallquest, MS98138",
+    cost: 23,
+    imgUrl: require("../img/Photo.jpg"),
+    new: true,
+    exclusive: false,
+    in_stock: true,
+    sale: true,
+    quantity: 1
+  }
  
   ])
   const { setQuantity } = useContext(AppContext);
