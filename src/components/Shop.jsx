@@ -6,7 +6,7 @@ import { AppContext } from "../App";
 const Shop = () => {
   const [items] = useState ( [{
     title: "Wall Paint Wallquest, MS90102",
-    cost: 30,
+    cost: 31,
     imgUrl: require("../img/Photo.jpg"),
     new: true,
     exclusive: true,
