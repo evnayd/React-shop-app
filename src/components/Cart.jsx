@@ -144,7 +144,7 @@ const Cart = () => {
                                             </div>
                                             <VscChromeClose 
                                             onClick={() => deleteItem(cartItem)} 
-                                            className='text-slate-200 cursor-pointer absolute top-4 right-0'></VscChromeClose>
+                                            className='text-slate-200 cursor-pointer absolute top-2 right-0'></VscChromeClose>
                                         </div>
                                     )
                                 }

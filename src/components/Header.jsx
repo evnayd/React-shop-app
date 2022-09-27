@@ -11,7 +11,6 @@ import { AppContext } from "../App";
 const Header = ( ) => {
     const [isOpen, setOpen] = useState(false);
     const { setCartOpen, quantity} = useContext(AppContext);
-    console.log('is open',  isOpen)
 
     return  (
     <div className="app-container flex py-3 md:pt-6  md:pb-6 justify-between items-center md:items-center border-b relative z-20">

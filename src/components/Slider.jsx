@@ -23,20 +23,20 @@ const Slider = ( ) => {
         }}
       >
         <SwiperSlide>
-        <img src="https://swiperjs.com/demos/images/nature-1.jpg"
-        alt="colors" />
+        <img src={require("../img/background.jpeg")}
+        alt="colors slider pic" />
           </SwiperSlide>
         <SwiperSlide>
-        <img src="https://swiperjs.com/demos/images/nature-2.jpg"
-         alt="colors" />
+        <img src={require("../img/background.jpeg")}
+         alt="colors slider pic" />
         </SwiperSlide>
         <SwiperSlide>
-        <img src="https://swiperjs.com/demos/images/nature-3.jpg"
-         alt="colors" />
+        <img src={require("../img/background.jpeg")}
+         alt="colors slider pic" />
         </SwiperSlide>
         <SwiperSlide>
-        <img src="https://swiperjs.com/demos/images/nature-4.jpg"
-         alt="colors" />
+        <img src={require("../img/background.jpeg")}
+         alt="colors slider pic" />
         </SwiperSlide>
       </Swiper>
     )

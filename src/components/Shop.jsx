@@ -7,7 +7,7 @@ const Shop = () => {
   const [items] = useState ( [{
     title: "Wall Paint Wallquest, MS90102",
     cost: 30,
-    imgUrl: "https://swiperjs.com/demos/images/nature-1.jpg",
+    imgUrl: require("../img/Photo.jpg"),
     new: true,
     exclusive: true,
     in_stock: true,
@@ -18,7 +18,7 @@ const Shop = () => {
   {
     title: "Wall Paint Wallquest, MS90103",
     cost: 40,
-    imgUrl: "https://swiperjs.com/demos/images/nature-2.jpg",
+    imgUrl: require("../img/Photo1.jpg"),
     new: false,
     exclusive: true,
     in_stock: true,
@@ -28,7 +28,7 @@ const Shop = () => {
   {
     title: "Wall Paint Wallquest, MS90104",
     cost: 32,
-    imgUrl: "https://swiperjs.com/demos/images/nature-3.jpg",
+    imgUrl: require("../img/Photo3.jpg"),
     new: true,
     exclusive: false,
     in_stock: true,
@@ -38,7 +38,7 @@ const Shop = () => {
   {
     title: "Wall Paint Wallquest, MS90105",
     cost: 29,
-    imgUrl: "https://swiperjs.com/demos/images/nature-3.jpg",
+    imgUrl: require("../img/Photo.jpg"),
     new: true,
     exclusive: false,
     in_stock: true,
@@ -48,7 +48,7 @@ const Shop = () => {
   {
     title: "Wall Paint Wallquest, MS90106",
     cost: 20,
-    imgUrl: "https://swiperjs.com/demos/images/nature-3.jpg",
+    imgUrl: require("../img/Photo.jpg"),
     new: false,
     exclusive: false,
     in_stock: true,
@@ -59,7 +59,7 @@ const Shop = () => {
   {
     title: "Wall Paint Wallquest, MS90107",
     cost: 19,
-    imgUrl: "https://swiperjs.com/demos/images/nature-3.jpg",
+    imgUrl: require("../img/Photo1.jpg"),
     new: false,
     exclusive: false,
     in_stock: true,
@@ -69,7 +69,7 @@ const Shop = () => {
   {
     title: "Wall Paint Wallquest, MS90108",
     cost: 80,
-    imgUrl: "https://swiperjs.com/demos/images/nature-1.jpg",
+    imgUrl: require("../img/Photo3.jpg"),
     new: true,
     exclusive: true,
     in_stock: true,
@@ -129,7 +129,6 @@ const addToCart = (item) => {
         <div className='md:flex md:justify-between'>
         <h1 className='hidden md:block text-gray-500 text-sm'>{filteredItems.length} items</h1>
         <Sort 
-        className=""
         sortItems={sortItems}/>
         </div>
         <div className="md:flex flex-wrap justify-between mx-1 ">
