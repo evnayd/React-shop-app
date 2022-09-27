@@ -14,11 +14,12 @@ const Header = ( ) => {
     console.log('is open',  isOpen)
 
     return  (
-    <div className="app-container flex py-3 md:pt-6  md:pb-6 justify-between items-end md:items-baseline border-b relative z-20">
+    <div className="app-container flex py-3 md:pt-6  md:pb-6 justify-between items-center md:items-center border-b relative z-20">
         <Hamburger
+        size={22}
         toggled={isOpen} toggle={setOpen}
         />
-        <p className='header-title mb-1 uppercase font-semibold font-lg'>Colors</p>
+        <p className='header-title mb-1 uppercase font-semibold font-lg ml-4 md:ml-0'>Colors</p>
         <Nav isOpen={isOpen}/>
         <div className = 'flex md:w-1/3 justify-between'>
         <div className = 'hidden md:flex flex-col mr-3'>
