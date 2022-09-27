@@ -113,7 +113,7 @@ const Cart = () => {
                                 (cart.map((cartItem, index) => {
                                     return (
                                      <div
-                                            className='item-box border-t md:p-2 py-4 flex justify-between items-center relative'
+                                            className='item-box border-t md:p-4 py-4 md:pr-12 flex justify-between items-center relative'
                                             key={index}>
 
                                             <div className='flex w-1/2'>
@@ -144,7 +144,7 @@ const Cart = () => {
                                             </div>
                                             <VscChromeClose 
                                             onClick={() => deleteItem(cartItem)} 
-                                            className='text-slate-200 cursor-pointer absolute top-2 right-0'></VscChromeClose>
+                                            className='text-slate-200 cursor-pointer absolute top-2 right-0 md:right-4 md:top-14'></VscChromeClose>
                                         </div>
                                     )
                                 }

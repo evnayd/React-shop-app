@@ -13,9 +13,9 @@ const Slider = ( ) => {
         centeredSlides={true}
         pagination={{
         clickable: true}}
-        navigation={true}
-        modules={[Pagination, Navigation]}
-        className="mySwiper h-96 hidden md:block"
+        navigation = {true}
+        modules = {[Pagination, Navigation]}
+        className = "mySwiper h-auto hidden md:block"
         loop={true}
         style={{
           "--swiper-navigation-color": "#fff",

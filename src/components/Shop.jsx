@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react';
+import React, { useState, useContext } from 'react';
 import Filter from './Filter';
 import Sort from './Sort';
 import { AppContext } from "../App";
@@ -123,15 +123,15 @@ const addToCart = (item) => {
 
 
   return (
-    <div className='lg:flex lg:justify-between app-container py-20 relative'>
+    <div className='lg:flex lg:justify-between app-container my-20 relative'>
       <Filter filterItems={filterItems} />
       <div className='lg:w-4/5'>
         <div className='md:flex md:justify-between'>
-        <h1 className='hidden md:block text-gray-500 text-sm'>{filteredItems.length} items</h1>
+        <h2 className='hidden md:block text-gray-500 text-sm'>{filteredItems.length} items</h2>
         <Sort 
         sortItems={sortItems}/>
         </div>
-        <div className="md:flex flex-wrap justify-between mx-1 ">
+        <div className="md:flex flex-wrap justify-between mx-1 pt-16">
           {filteredItems.map((item, index) => {
             return (
               <div
