@@ -9,30 +9,27 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /**/
-  /*height: 100vh;
-  overflow-y: hidden;*/
-  
 }
-
-/*code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}*/
 
 .app-container {
   padding-left: 10px;
   padding-right: 10px;
 }
 
+.hamburger-react  div{
+  display: block;
+  background-color: blue;
+  width: 20px;
+}
 
-@media screen and (max-width: 768px) {
+
+@media screen and (max-width: 1024px) {
   .open {
     display: flex;
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
   .closed {
     display: none;
   }
@@ -42,11 +39,12 @@ body {
   }
 }
 
+
 @media screen and (min-width: 1024px) {
 
   .hamburger-react {
-     display: none;
-  }
+    display: none;
+ }
 
   .app-container {
     padding-left: 65px;
