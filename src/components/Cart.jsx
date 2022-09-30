@@ -91,7 +91,7 @@ const Cart = () => {
     if (CartOpen === 'true')
         return (
             <div className='h-screen w-full fixed top-0 right-0 z-50 popup'>
-                <div className='w-full lg:w-1/3 bg-white h-full opacity-100 absolute right-0 top-0 p-4 md:p-8 flex flex-col justify-between'>
+                <div className='w-full lg:w-1/3 bg-white h-screen opacity-100 absolute right-0 top-0 p-4 md:p-8 flex flex-col justify-between'>
                     <div>
                         <div className='flex justify-between'>
                             <h1 className='font-bold text-3xl mb-28'>Cart</h1>
