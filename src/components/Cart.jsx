@@ -90,7 +90,7 @@ const Cart = () => {
 
     if (CartOpen === 'true')
         return (
-            <div className='h-screen w-full bg-red-200 fixed top-0 right-0 z-50 popup'>
+            <div className='h-screen w-full fixed top-0 right-0 z-50 popup'>
                 <div className='w-full lg:w-1/3 bg-white h-full opacity-100 absolute right-0 top-0 p-4 md:p-8 flex flex-col justify-between'>
                     <div>
                         <div className='flex justify-between'>
@@ -162,7 +162,7 @@ const Cart = () => {
                         </div>
                         <button
                          onClick={() => makeTheOrder()} 
-                         className='px-14 py-2 bg-teal-600 hover:bg-teal-700 rounded-md uppercase text-xs'>Make the order</button>
+                         className='md:sticky md:b-0 md:l-0 px-14 py-2 bg-teal-600 hover:bg-teal-700 rounded-md uppercase text-xs'>Make the order</button>
                     </div>
                 </div>
 
