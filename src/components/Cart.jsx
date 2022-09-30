@@ -91,15 +91,15 @@ const Cart = () => {
     if (CartOpen === 'true')
         return (
             <div className='h-screen w-full fixed top-0 right-0 z-50 popup'>
-                <div className='w-full lg:w-1/3 bg-white h-screen opacity-100 absolute right-0 top-0 p-4 md:p-8 flex flex-col justify-between'>
+                <div className='w-full lg:w-1/3 bg-white h-full opacity-100 absolute right-0 top-0 p-4 pb-20 md:pb-4  flex flex-col justify-around md:justify-between'>
                     <div>
                         <div className='flex justify-between'>
-                            <h1 className='font-bold text-3xl mb-28'>Cart</h1>
+                            <h1 className='font-bold text-3xl mb-8'>Cart</h1>
                             <button
                                 onClick={() => setCartOpen('false')}
                                 className='w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center'>
                                 <VscChromeClose></VscChromeClose>
-                            </button>
+                            </button> 
                         </div>
                         <div className='flex justify-between pb-2'>
                             <p>{numberOfItems} items</p>
@@ -108,18 +108,18 @@ const Cart = () => {
                             className='text-slate-300 uppercase text-sm cursor-pointer'>Clear</p>
                         </div>
 
-                        <div className='overflow-y-scroll h-96 md:h-72'>
+                        <div className='overflow-y-scroll h-96 md:h-72  bg-white'>
                             {(cart && cart.length) ?
                                 (cart.map((cartItem, index) => {
                                     return (
                                      <div
-                                            className='item-box border-t md:p-4 py-4 md:pr-12 flex justify-between items-center relative'
+                                            className='item-box border-t md:p-4 py-5 lg:pr-10 flex justify-between items-center relative'
                                             key={index}>
 
                                             <div className='flex w-1/2'>
                                                 <img
                                                     alt="items"
-                                                    className='pr-3 md:pr-8 w-32'
+                                                    className='pr-3 md:pr-3 w-28'
                                                     src={cartItem.imgUrl}>
                                                 </img>
                                                 <div className="flex flex-col justify-between">
@@ -134,17 +134,17 @@ const Cart = () => {
                                                     decreaseQuantity(cartItem) 
                                                     
                                                 }}
-                                                className='w-11 p-1 bg-slate-200 text-lg rounded-md'>-</button>
-                                                <p className='mx-5'>{cartItem.quantity }</p>
+                                                className='w-11 md:w-9 lg:w-11 p-1 bg-slate-200 text-lg rounded-md'>-</button>
+                                                <p className='mx-2 lg:mx-5'>{cartItem.quantity }</p>
                                                 <button 
                                                  onClick={() => {
                                                     increaseQuantity(cartItem)                                          
                                                 }}
-                                                className='w-11 p-1 bg-slate-200 text-lg rounded-md'>+</button>
+                                                className='w-11 md:w-9 lg:w-11 p-1 bg-slate-200 text-lg rounded-md'>+</button>
                                             </div>
                                             <VscChromeClose 
                                             onClick={() => deleteItem(cartItem)} 
-                                            className='text-slate-200 cursor-pointer absolute top-2 right-0 md:right-4 md:top-14'></VscChromeClose>
+                                            className='text-slate-200 cursor-pointer absolute top-2 right-0 md:right-4 md:top-14 '></VscChromeClose>
                                         </div>
                                     )
                                 }
@@ -162,7 +162,7 @@ const Cart = () => {
                         </div>
                         <button
                          onClick={() => makeTheOrder()} 
-                         className='md:sticky md:b-0 md:l-0 px-14 py-2 bg-teal-600 hover:bg-teal-700 rounded-md uppercase text-xs'>Make the order</button>
+                         className='px-14 py-2 bg-teal-600 hover:bg-teal-700 rounded-md uppercase text-xs'>Make the order</button>
                     </div>
                 </div>
 
