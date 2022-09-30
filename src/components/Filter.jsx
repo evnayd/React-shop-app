@@ -1,6 +1,5 @@
 import React,  {useState} from 'react';
 import { VscChevronDown } from "react-icons/vsc";
-//import 'animate.css';
 
 const Filter =  ({filterItems}) => {
       

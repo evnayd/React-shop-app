@@ -108,7 +108,7 @@ const Cart = () => {
                             className='text-slate-300 uppercase text-sm cursor-pointer'>Clear</p>
                         </div>
 
-                        <div className='overflow-y-scroll h-96'>
+                        <div className='overflow-y-scroll h-96 md:h-72'>
                             {(cart && cart.length) ?
                                 (cart.map((cartItem, index) => {
                                     return (
